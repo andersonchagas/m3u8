@@ -75,7 +75,9 @@ function M3U8() {
                         if (v.indexOf("http") === 0 || v.indexOf("ftp") === 0) { // absolute url
                             return v;
                         }
-                        return url.protocol + "//" + url.host + url.pathname + "/./../" + v; // map ts files into url
+                        //return url.protocol + "//" + url.host + url.pathname + "/./../" + v; // map ts files into url
+                        //Some URLs doesnt need to navigate back;
+                        return url.protocol + "//" + url.host + v; // map ts files into url
                     });
 
                     if (!mapped.length) {
